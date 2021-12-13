@@ -1,4 +1,5 @@
 import json
+import os
 from decimal import Decimal
 from time import sleep, time, gmtime, mktime
 from selenium import webdriver
@@ -149,7 +150,13 @@ def getNewWorker(colSize, rowSize, colPosition, rowPosition):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_experimental_option("useAutomationExtension", False)
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    browser = webdriver.Chrome(options=chrome_options, desired_capabilities=caps)
+
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+
+    browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options, desired_capabilities=caps)
     browser.set_window_size(colSize, rowSize)
     browser.set_window_position(colPosition, rowPosition)
     return browser
