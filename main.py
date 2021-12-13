@@ -177,8 +177,11 @@ movingWorkers = []
 for worker in workers:
     freeWorkers.append(worker)
 
+print("Workers init...")
 cursor = myConnection.cursor()
 cursor.execute('UPDATE zedrun.race SET processed=0 WHERE processed = 1;')
+
+print("Clear old...")
 
 horses = ["66994", "88764"]
 
