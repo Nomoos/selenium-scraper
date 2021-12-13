@@ -9,7 +9,7 @@ import time
 def scrape_top_news():
 
     browser = webdriver.Chrome(
-        executable_path="/Users/nom/chromedriver/chromedriver")
+        executable_path="/Users/akjasim/chromedriver/chromedriver")
 
     wait = WebDriverWait(browser, 10)
     browser.get('https://news.ycombinator.com/')
