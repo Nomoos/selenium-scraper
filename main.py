@@ -164,8 +164,10 @@ def getNewWorker(colSize, rowSize, colPosition, rowPosition):
 
 for col in range(workersCol):
     for row in range(workersRow):
+        print("Make worker")
         browser = getNewWorker(workerColSize, workerRowSize, col * workerColSize, row * workerRowSize)
         workers.append([browser,"",workerColSize, workerRowSize, col*workerColSize,row*workerRowSize])
+        print("Maked worker")
 
 freeWorkers = []
 loadedWorkers = []
