@@ -129,7 +129,7 @@ def getUnprocessedRaces():
 
 def setRaceStatus(status, raceId):
     cursor = myConnection.cursor()
-    sqlSetRaceProcesed = 'UPDATE race SET processed='+str(status)+' WHERE id="' + raceId + '"'
+    sqlSetRaceProcesed = 'UPDATE race SET processed='+str(status)+' WHERE id="' + str(raceId) + '"'
     cursor.execute(sqlSetRaceProcesed)
     myConnection.commit()
 
